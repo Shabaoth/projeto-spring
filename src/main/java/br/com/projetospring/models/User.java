@@ -22,10 +22,6 @@ public class User {
 
     private String email;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     public void setName(String name) {
         this.name = name;
     }
