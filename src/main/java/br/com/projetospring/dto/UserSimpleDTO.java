@@ -22,6 +22,9 @@ public class UserSimpleDTO {
     @JsonProperty("created_at")
     private LocalDateTime dataCriacao;
 
+    public UserSimpleDTO() {
+    }
+
     public UserSimpleDTO(User user) {
         this.id = user.getId();
         this.name = user.getName();

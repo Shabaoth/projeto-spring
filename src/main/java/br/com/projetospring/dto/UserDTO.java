@@ -22,6 +22,10 @@ public class UserDTO {
     @JsonProperty("created_at")
     private LocalDateTime dataCriacao;
 
+    public UserDTO() {
+
+    }
+
     public UserDTO(UserCreateUpdateDTO userCreateUpdateDTO) {
         this.name = userCreateUpdateDTO.getName();
         this.ra = userCreateUpdateDTO.getRa();
@@ -36,7 +40,6 @@ public class UserDTO {
         this.dataCriacao = LocalDateTime.ofInstant(user.getDataCriacao().toInstant(), ZoneOffset.systemDefault());
     }
 
-
     public Integer getId() {
         return id;
     }
@@ -49,28 +52,28 @@ public class UserDTO {
         return name;
     }
 
-    public String getCode() {
-        return code;
-    }
-
-    public Integer getRa() {
-        return ra;
-    }
-
-    public LocalDateTime getDataCriacao() {
-        return dataCriacao;
-    }
-
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getCode() {
+        return code;
     }
 
     public void setCode(String code) {
         this.code = code;
     }
 
+    public Integer getRa() {
+        return ra;
+    }
+
     public void setRa(Integer ra) {
         this.ra = ra;
+    }
+
+    public LocalDateTime getDataCriacao() {
+        return dataCriacao;
     }
 
     public void setDataCriacao(LocalDateTime dataCriacao) {
