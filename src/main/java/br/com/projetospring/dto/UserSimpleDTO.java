@@ -19,7 +19,7 @@ public class UserSimpleDTO {
     @JsonProperty("code")
     private String code;
 
-    @JsonProperty("createdDate")
+    @JsonProperty("created_at")
     private LocalDateTime dataCriacao;
 
     public UserSimpleDTO(User user) {

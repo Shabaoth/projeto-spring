@@ -3,6 +3,7 @@ package br.com.projetospring.controller;
 import br.com.projetospring.dto.UserCreateUpdateDTO;
 import br.com.projetospring.dto.UserDTO;
 import br.com.projetospring.dto.UserSimpleDTO;
+import br.com.projetospring.entity.User;
 import br.com.projetospring.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -10,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @RestController
@@ -41,12 +44,13 @@ public class UserController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     @ApiOperation(value = "Create a user resource.")
-    public UserDTO create(@RequestBody UserCreateUpdateDTO userCreateUpdateDTO) {
-        return userService.create(userCreateUpdateDTO);
+    public UserDTO createUser(@RequestBody UserCreateUpdateDTO userCreateUpdateDTO) {
+        final UserDTO createUser = userService.create(userCreateUpdateDTO);
+        return this.findById(createUser.getId());
     }
 
     @PutMapping("{id}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @ResponseStatus(HttpStatus.OK)
     @ApiOperation(value = "Update a user resource.", notes = "You have to provide a valid user ID in the URL and in the payload. The ID attribute can not be updated.")
     public UserDTO update(@PathVariable Integer id, @RequestBody UserCreateUpdateDTO userCreateUpdateDTO) {
         return userService.update(id, userCreateUpdateDTO);
