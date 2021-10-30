@@ -5,6 +5,10 @@ import br.com.projetospring.dto.UserDTO;
 import br.com.projetospring.dto.UserSimpleDTO;
 import br.com.projetospring.entity.User;
 import br.com.projetospring.repository.UserRepository;
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ResponseStatusException;
@@ -12,6 +16,7 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Slf4j
 @Component("userService")
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;

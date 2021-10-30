@@ -3,9 +3,6 @@ package br.com.projetospring.dto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class UserCreateUpdateDTO {
-    @JsonProperty("id")
-    private Integer id;
-
     @JsonProperty("name")
     private String name;
 
@@ -14,14 +11,6 @@ public class UserCreateUpdateDTO {
 
     @JsonProperty("code")
     private String code;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;

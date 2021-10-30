@@ -1,8 +1,6 @@
 #management endpoints on a separate port
-management:
+server:
   port: 8081
-  security:
-    enabled: false # management port is internal only. no need to secure it.
 
 spring:
   jackson:
@@ -17,21 +15,6 @@ spring:
     url: jdbc:mysql://localhost:3307/spring_project?useUnicode=true&characterEncoding=UTF8&allowPublicKeyRetrieval=true&useSSL=false
     username: mysql
     password: mysql
-
-  # ===============================
-  # = Redis configurations
-  # ===============================
-  redis:
-    database: 0
-    host: 127.0.0.1
-    port: 6380
-    password:
-    pool:
-      max-active: 8
-      max-wait: -1
-      max-idle: 8
-      min-idle: 0
-    timeout: 0
 
   # ===============================
   # = JPA configurations

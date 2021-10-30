@@ -15,8 +15,3 @@ services:
       - "--collation-server=utf8_general_ci"
     volumes:
       - ./sql:/docker-entrypoint-initdb.d
-
-  cache:
-    image: redis:6.0.9-alpine
-    ports:
-      - "6380:6379"

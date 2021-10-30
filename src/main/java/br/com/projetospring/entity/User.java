@@ -35,6 +35,7 @@ public class User {
         this.name = userCreateUpdateDTO.getName();
         this.code = userCreateUpdateDTO.getCode();
         this.ra = userCreateUpdateDTO.getRa();
+        this.dataCriacao = new Date();
     }
 
 
