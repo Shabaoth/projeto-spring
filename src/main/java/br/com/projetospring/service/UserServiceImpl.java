@@ -6,23 +6,25 @@ import br.com.projetospring.dto.UserSimpleDTO;
 import br.com.projetospring.entity.User;
 import br.com.projetospring.repository.UserRepository;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Component;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Component("userService")
 public class UserServiceImpl implements UserService {
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
     public UserServiceImpl(
             UserRepository userRepository
-    ){
+    ) {
         this.userRepository = userRepository;
     }
 
     @Override
     public List<UserSimpleDTO> list(String name) {
-        return userRepository.findAllByNomeStartsWith(name)
+        return userRepository.findAllByNameStartsWith(name)
                 .stream()
                 .map(UserSimpleDTO::new)
                 .collect(Collectors.toList());

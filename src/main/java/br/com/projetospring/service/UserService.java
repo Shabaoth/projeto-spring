@@ -6,7 +6,7 @@ import br.com.projetospring.dto.UserSimpleDTO;
 
 import java.util.List;
 
-public interface  UserService {
+public interface UserService {
     List<UserSimpleDTO> list(String name);
     UserDTO findById(Integer id);
     UserDTO create(UserCreateUpdateDTO userCreateUpdateDTO);

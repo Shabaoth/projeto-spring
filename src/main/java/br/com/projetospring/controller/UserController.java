@@ -4,6 +4,8 @@ import br.com.projetospring.dto.UserCreateUpdateDTO;
 import br.com.projetospring.dto.UserDTO;
 import br.com.projetospring.dto.UserSimpleDTO;
 import br.com.projetospring.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,6 +15,7 @@ import java.util.List;
 @RequestMapping("users")
 public class UserController {
 
+    @Autowired
     private final UserService userService;
 
     public UserController(UserService userService) {
@@ -29,7 +32,7 @@ public class UserController {
     @GetMapping("{id}")
     public UserDTO findById(
             @PathVariable Integer id
-    ){
+    ) {
         return userService.findById(id);
     }
 
@@ -37,7 +40,7 @@ public class UserController {
     @ResponseStatus(HttpStatus.CREATED)
     public UserDTO create(
             @RequestBody UserCreateUpdateDTO userCreateUpdateDTO
-    ){
+    ) {
         return userService.create(userCreateUpdateDTO);
     }
 
@@ -45,7 +48,7 @@ public class UserController {
     public UserDTO update(
             @PathVariable Integer id,
             @RequestBody UserCreateUpdateDTO userCreateUpdateDTO
-    ){
+    ) {
         return userService.update(id, userCreateUpdateDTO);
     }
 
@@ -53,7 +56,7 @@ public class UserController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(
             @PathVariable Integer id
-    ){
+    ) {
         userService.delete(id);
     }
 }
