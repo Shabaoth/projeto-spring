@@ -1,14 +1,9 @@
 package br.com.projetospring;
 
-import br.com.projetospring.controller.UserController;
-import br.com.projetospring.dto.UserDTO;
 import br.com.projetospring.dto.UserSimpleDTO;
-import br.com.projetospring.entity.User;
 import br.com.projetospring.service.UserServiceImpl;
 import org.junit.jupiter.api.Test;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
