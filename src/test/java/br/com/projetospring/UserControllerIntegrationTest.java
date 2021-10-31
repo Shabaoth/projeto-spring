@@ -117,7 +117,7 @@ public class UserControllerIntegrationTest {
         String[] parts = locationUrl.split("/");
         return Long.valueOf(parts[parts.length - 1]);
     }
-    
+
     private User mockUser(String prefix) {
         User user = new User();
         user.setName("teste_name");

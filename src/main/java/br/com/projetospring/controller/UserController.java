@@ -3,7 +3,7 @@ package br.com.projetospring.controller;
 import br.com.projetospring.dto.UserCreateUpdateDTO;
 import br.com.projetospring.dto.UserDTO;
 import br.com.projetospring.dto.UserSimpleDTO;
-import br.com.projetospring.entity.User;
+import br.com.projetospring.dto.UserTransactionDTO;
 import br.com.projetospring.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -11,8 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @RestController
@@ -39,6 +37,13 @@ public class UserController {
     @ApiOperation(value = "Get a single user.", notes = "You have to provide a valid post ID.")
     public UserDTO findById(@PathVariable Integer id) {
         return userService.findById(id);
+    }
+
+    @GetMapping("{id}/transactions")
+    @ResponseStatus(HttpStatus.OK)
+    @ApiOperation(value = "Get all transactions for a user.", notes = "You have to provide a valid post ID.")
+    public UserTransactionDTO getTransactionsByUserId(@PathVariable Integer id) {
+        return userService.getUserTransactionsByUserId(id);
     }
 
     @PostMapping

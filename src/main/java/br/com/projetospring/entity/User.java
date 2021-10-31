@@ -2,18 +2,17 @@ package br.com.projetospring.entity;
 
 import br.com.projetospring.dto.UserCreateUpdateDTO;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Getter
 @Setter
-@RequiredArgsConstructor
 @ToString
 public class User {
     @Column(nullable = false)
@@ -26,10 +25,11 @@ public class User {
     private String code;
     @Column
     private Integer ra;
-
     @Column(name = "data_criacao", nullable = false, updatable = false)
     @CreatedDate
     private Date dataCriacao;
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<Transaction> transactions;
 
     public User(UserCreateUpdateDTO userCreateUpdateDTO) {
         this.name = userCreateUpdateDTO.getName();
@@ -80,5 +80,12 @@ public class User {
     public void setDataCriacao(Date dataCriacao) {
         this.dataCriacao = dataCriacao;
     }
+    
+    public Set<Transaction> getTransactions() {
+        return this.transactions;
+    }
 
+    public void setTransactions(Set<Transaction> transactions) {
+        this.transactions = transactions;
+    }
 }
