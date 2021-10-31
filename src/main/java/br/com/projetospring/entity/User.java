@@ -38,6 +38,8 @@ public class User {
         this.dataCriacao = new Date();
     }
 
+    public User() {
+    }
 
     public void setId(Integer id) {
         this.id = id;
