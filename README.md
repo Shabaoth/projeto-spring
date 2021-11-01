@@ -18,3 +18,7 @@ Foi utilizado o ``MySQL`` como banco de dados por ele ser gratuito e de comum co
 
 Utilizamos o ``docker-composer``, pois facilita a configuração do ambiente exigindo menos do usuário que baixe diversos recursos, correndo risco de baixar uma versão diferente. 
 
+## Relatório de usuário (RF4)
+O usuário pode gerar um extrato dê suas transações a partir da rota: http://localhost:8081/swagger-ui/#/users/getTransactionsByUserIdUsingGET
+
+Basta informar o id do usuário e clicar em Execute. O response body será preenchido com o resultado da solicitação, disponibilizando também a opção de baixar o relatório do cliente no botão "Download".
