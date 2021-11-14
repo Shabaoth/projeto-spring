@@ -41,6 +41,13 @@ public class User {
     public User() {
     }
 
+    public User(String name, String code, Integer ra) {
+        this.name = name;
+        this.code = code;
+        this.ra = ra;
+        this.dataCriacao = new Date();
+    }
+
     public void setId(Integer id) {
         this.id = id;
     }
